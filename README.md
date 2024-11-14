@@ -18,6 +18,8 @@ Use `pip` to install the package from Github:
 $ pip install git+https://github.com/abdkarr/GSPKit.git
 ```
 
+Minimum supported python version is `3.10`.
+
 ### Development
 
 The development of this packege is done by `poetry`, which needs to be installed 
