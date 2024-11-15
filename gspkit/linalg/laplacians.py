@@ -48,6 +48,7 @@ def get_neg_laplacian(G: nx.Graph) -> sparse.sparray:
     A = nx.adjacency_matrix(G, weight="sign")
     
     A[A>0] = 0
+    A *= -1
     L = sparse.diags_array(np.sum(A, axis=1)) - A
 
     return L
