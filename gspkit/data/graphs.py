@@ -24,7 +24,7 @@ def ensure_connectedness(generator: Callable) -> None | nx.Graph:
         if i>500:
             return None
 
-def assign_signs(G: nx.Graph, fraction: float, rng: typing.RNG_TYPE=None) -> nx.Graph:
+def assign_signs(G: nx.Graph, fraction: float, rng: typing.RNG_TYPE=None):
     """Convert an unsigned graph to signed one by random sign assignment.
 
     Given an unsigned graph G, this function generates a signed graph by
@@ -34,20 +34,14 @@ def assign_signs(G: nx.Graph, fraction: float, rng: typing.RNG_TYPE=None) -> nx.
     Parameters
     ----------
     G : nx.Graph
-        Input graph.
+        Input graph. Modifies G in-place.
     fraction : float
         Fraction of edges to be set as negative edge.
     rng : typing.RNG_TYPE, optional
         Random number generator. If one wants the function to return the same
         output every time, this needs to be set. By default None.
-
-    Returns
-    -------
-    nx.Graph
-        Generated signed graph. It includes an edge attribute "sign" which is 1
-        or -1, indicating sign of the edge.
-
     """
+    
     rng = input_checks.check_rng(rng)
 
     nx.set_edge_attributes(
@@ -202,6 +196,6 @@ def gen_graph(
         if "frac" not in model_params:
             model_params["frac"] = 0.5
 
-        G = assign_signs(G, model_params["frac"])
+        assign_signs(G, model_params["frac"])
 
     return G
