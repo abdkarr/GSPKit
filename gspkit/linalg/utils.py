@@ -57,7 +57,7 @@ def vectorize_a_graph(
     n_nodes = G.number_of_nodes()
 
     if signed:
-        w = nx.to_numpy_array(G, weight="sign")[np.triu_indices_from(n_nodes, k=1)]
+        w = nx.to_numpy_array(G, weight="sign")[np.triu_indices(n_nodes, k=1)]
         w_pos = w.copy()
         w_pos[w_pos < 0] = 0
         w_neg = w.copy()
