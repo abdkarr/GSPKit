@@ -32,12 +32,14 @@ def rowsum_mat(n):
 
     return csr_array((np.ones((2*M, )), (rows, cols)), shape=(n, M))
 
-def vectorize_a_graph(G: nx.Graph, signed: bool=False) -> npt.NDArray:
+def vectorize_a_graph(
+        G: nx.Graph, signed: bool=False
+    ) -> npt.NDArray | tuple[npt.NDArray, npt.NDArray]:
     """Get strictly upper triangular part of the graph adjacency as a vector. 
 
     The function can handle unsigned and signed graph. In the latter case it
     returns two vectors representing strictly upper triangular part of positive
-    and negative adjacency matrix.
+    and negative adjacency matrix. 
 
     Parameters
     ----------
@@ -60,6 +62,6 @@ def vectorize_a_graph(G: nx.Graph, signed: bool=False) -> npt.NDArray:
         w_pos[w_pos < 0] = 0
         w_neg = w.copy()
         w_neg[w_neg > 0] = 0
-        return w_pos, w_neg
+        return w_pos, np.abs(w_neg)
     else:
         return nx.to_numpy_array(G)[np.triu_indices(n_nodes, k=1)]
