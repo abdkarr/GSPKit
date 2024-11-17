@@ -196,6 +196,6 @@ def gen_graph(
         if "frac" not in model_params:
             model_params["frac"] = 0.5
 
-        assign_signs(G, model_params["frac"])
+        assign_signs(G, model_params["frac"], rng)
 
     return G
