@@ -1,4 +1,6 @@
 import numpy as np
+import networkx as nx
+import numpy.typing as npt
 
 from scipy.sparse import csr_array
 
@@ -29,3 +31,35 @@ def rowsum_mat(n):
     cols = np.concatenate((np.arange(M), np.arange(M)))
 
     return csr_array((np.ones((2*M, )), (rows, cols)), shape=(n, M))
+
+def vectorize_a_graph(G: nx.Graph, signed: bool=False) -> npt.NDArray:
+    """Get strictly upper triangular part of the graph adjacency as a vector. 
+
+    The function can handle unsigned and signed graph. In the latter case it
+    returns two vectors representing strictly upper triangular part of positive
+    and negative adjacency matrix.
+
+    Parameters
+    ----------
+    G : nx.Graph
+        Input graph. 
+    signed : bool, optional
+        Flag indicating whether input graph is signed or not. If True, `G` should
+        edge attribute named `signed` indicating edges' sign.
+
+    Returns
+    -------
+    np.NDArray of tuple of np.NDArrays
+        Output vector or vectors in case of signed graph
+    """
+    n_nodes = G.number_of_nodes()
+
+    if signed:
+        w = nx.to_numpy_array(G, weight="sign")[np.triu_indices_from(n_nodes, k=1)]
+        w_pos = w.copy()
+        w_pos[w_pos < 0] = 0
+        w_neg = w.copy()
+        w_neg[w_neg > 0] = 0
+        return w_pos, w_neg
+    else:
+        return nx.to_numpy_array(G)[np.triu_indices(n_nodes, k=1)]
