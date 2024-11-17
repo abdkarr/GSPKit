@@ -51,7 +51,7 @@ def _one_to_all(func, data1, data2):
         return result.squeeze()
 
 def density(w: list[npt.NDArray] | npt.NDArray) -> float | npt.NDArray:
-    """Calculate density of a given set of graphs.
+    r"""Calculate density of a given set of graphs.
 
     Parameters
     ----------
@@ -73,7 +73,7 @@ def correlation(
         w1: list[npt.NDArray] | npt.NDArray, 
         w2: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate correlation between two sets of graphs.
+    r"""Calculate correlation between two sets of graphs.
 
     Given two set of graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, and
     :math:`\mathcal{H} = \{H^i\}_{i=1}^M`, this function calculates correlation
@@ -104,7 +104,7 @@ def f1(
         w_gt: list[npt.NDArray] | npt.NDArray, 
         w_hat: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate F1-score between ground truth and learned graphs. 
+    r"""Calculate F1-score between ground truth and learned graphs. 
 
     Given :math:`N` ground truth graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, 
     and learned graphs :math:`\widehat{\mathcal{G}} = \{\widehat{G}^i\}_{i=1}^N`, 
@@ -134,7 +134,7 @@ def auprc(
         w_gt: list[npt.NDArray] | npt.NDArray, 
         w_hat: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate AUPRC score between ground truth and learned graphs. 
+    r"""Calculate AUPRC score between ground truth and learned graphs. 
 
     Given :math:`N` ground truth graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, 
     and learned graphs :math:`\widehat{\mathcal{G}} = \{\widehat{G}^i\}_{i=1}^N`, 
@@ -165,7 +165,7 @@ def accuracy(
         w_gt: list[npt.NDArray] | npt.NDArray, 
         w_hat: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate accuracy score between ground truth and learned graphs. 
+    r"""Calculate accuracy score between ground truth and learned graphs. 
 
     Given :math:`N` ground truth graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, 
     and learned graphs :math:`\widehat{\mathcal{G}} = \{\widehat{G}^i\}_{i=1}^N`, 
@@ -196,7 +196,7 @@ def nmi(
         w_gt: list[npt.NDArray] | npt.NDArray, 
         w_hat: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate NMI between ground truth and learned graphs. 
+    r"""Calculate NMI between ground truth and learned graphs. 
 
     Given :math:`N` ground truth graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, 
     and learned graphs :math:`\widehat{\mathcal{G}} = \{\widehat{G}^i\}_{i=1}^N`, 
@@ -227,7 +227,7 @@ def precision(
         w_gt: list[npt.NDArray] | npt.NDArray, 
         w_hat: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate precision score between ground truth and learned graphs. 
+    r"""Calculate precision score between ground truth and learned graphs. 
 
     Given :math:`N` ground truth graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, 
     and learned graphs :math:`\widehat{\mathcal{G}} = \{\widehat{G}^i\}_{i=1}^N`, 
@@ -258,7 +258,7 @@ def recall(
         w_gt: list[npt.NDArray] | npt.NDArray, 
         w_hat: list[npt.NDArray] | npt.NDArray
     ) -> float | npt.NDArray:
-    """Calculate recall score between ground truth and learned graphs. 
+    r"""Calculate recall score between ground truth and learned graphs. 
 
     Given :math:`N` ground truth graphs, :math:`\mathcal{G} = \{G^i\}_{i=1}^N`, 
     and learned graphs :math:`\widehat{\mathcal{G}} = \{\widehat{G}^i\}_{i=1}^N`, 

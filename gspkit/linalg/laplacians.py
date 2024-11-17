@@ -4,7 +4,7 @@ import networkx as nx
 from scipy import sparse
 
 def get_pos_laplacian(G: nx.Graph) -> sparse.sparray:
-    """Get the Laplacian of the positive part of a signed graph. 
+    r"""Get the Laplacian of the positive part of a signed graph. 
 
     The function construct an unsigned graph from positive part of the input
     signed graph and returns its Laplacian matrix.
@@ -29,7 +29,7 @@ def get_pos_laplacian(G: nx.Graph) -> sparse.sparray:
     return L
 
 def get_neg_laplacian(G: nx.Graph) -> sparse.sparray:
-    """Get the Laplacian of the negative part of a signed graph. 
+    r"""Get the Laplacian of the negative part of a signed graph. 
 
     The function construct an unsigned graph from negative part of the input
     signed graph and returns its Laplacian matrix.

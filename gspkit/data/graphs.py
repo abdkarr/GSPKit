@@ -10,7 +10,7 @@ from gspkit import input_checks
 from gspkit import exceptions
 
 def ensure_connectedness(generator: Callable) -> None | nx.Graph:
-    """Draw a random graph until finding a connected one.
+    r"""Draw a random graph until finding a connected one.
     """
 
     i = 1
@@ -25,7 +25,7 @@ def ensure_connectedness(generator: Callable) -> None | nx.Graph:
             return None
 
 def assign_signs(G: nx.Graph, fraction: float, rng: typing.RNG_TYPE=None):
-    """Convert an unsigned graph to signed one by random sign assignment.
+    r"""Convert an unsigned graph to signed one by random sign assignment.
 
     Given an unsigned graph G, this function generates a signed graph by
     assigning a negative sign to a randomly selected fraction of G's edges and
@@ -52,7 +52,7 @@ def gen_random_geometric_graph(
         n_nodes: int, sigma: float=0.25, th: float=0.6, n_dim: int=2, 
         rng: typing.RNG_TYPE=None
     ):
-    """Generate a random geometric graph. 
+    r"""Generate a random geometric graph. 
 
     A random geometric graph is a graph generated from a n-dimensional point
     cloud where points are drawn uniformly from unit square :math:`[0, 1]^n`.
@@ -93,7 +93,7 @@ def gen_graph(
         n_nodes: int, model: str, model_params: dict = {}, ensure_connected: bool = True, 
         rng: typing.RNG_TYPE = None
     ):
-    """Generate a random graph from a random graph model.
+    r"""Generate a random graph from a random graph model.
 
     This function is implemented to provide a single API point that can be
     called to generate graphs from different random graph models. 

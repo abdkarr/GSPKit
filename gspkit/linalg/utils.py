@@ -35,7 +35,7 @@ def rowsum_mat(n):
 def vectorize_a_graph(
         G: nx.Graph, signed: bool=False
     ) -> npt.NDArray | tuple[npt.NDArray, npt.NDArray]:
-    """Get strictly upper triangular part of the graph adjacency as a vector. 
+    r"""Get strictly upper triangular part of the graph adjacency as a vector. 
 
     The function can handle unsigned and signed graph. In the latter case it
     returns two vectors representing strictly upper triangular part of positive
