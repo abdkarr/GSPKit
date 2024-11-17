@@ -1,1 +1,1 @@
-from .utils import rowsum_mat
+from .utils import rowsum_mat, vectorize_a_graph
