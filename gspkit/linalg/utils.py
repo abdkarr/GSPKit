@@ -25,6 +25,8 @@ def rowsum_mat(n):
         Matrix to be used in row-sum calculation.
     """
 
+    # TODO Testing
+
     i, j = np.triu_indices(n, k=1)
     M = len(i)
     rows = np.concatenate((i, j))
@@ -54,6 +56,9 @@ def vectorize_a_graph(
     np.NDArray of tuple of np.NDArrays
         Output vector or vectors in case of signed graph
     """
+
+    # TODO Testing
+
     n_nodes = G.number_of_nodes()
 
     if signed:

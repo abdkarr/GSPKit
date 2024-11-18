@@ -21,6 +21,8 @@ def check_rng(rng: typing.RNG_TYPE) -> np.random.Generator:
         Returned RNG. 
     """
     
+    # TODO Testing
+    
     if rng is None:
         rng = np.random.default_rng()
     elif isinstance(rng, int):

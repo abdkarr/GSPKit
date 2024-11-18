@@ -20,6 +20,8 @@ def get_pos_laplacian(G: nx.Graph) -> sparse.sparray:
     sparse.sparray
         Laplacian matrix. 
     """
+
+    # TODO Testing
     
     A = nx.adjacency_matrix(G, weight="sign")
     
@@ -45,6 +47,9 @@ def get_neg_laplacian(G: nx.Graph) -> sparse.sparray:
     sparse.sparray
         Laplacian matrix. 
     """
+
+    # TODO Testing
+
     A = nx.adjacency_matrix(G, weight="sign")
     
     A[A>0] = 0

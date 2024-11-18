@@ -13,6 +13,8 @@ def ensure_connectedness(generator: Callable) -> None | nx.Graph:
     r"""Draw a random graph until finding a connected one.
     """
 
+    # TODO Testing
+
     i = 1
     while True:
         G = generator()
@@ -42,6 +44,8 @@ def assign_signs(G: nx.Graph, fraction: float, rng: typing.RNG_TYPE=None):
         output every time, this needs to be set. By default None.
     """
     
+    # TODO Testing
+
     rng = input_checks.check_rng(rng)
 
     nx.set_edge_attributes(
@@ -79,6 +83,8 @@ def gen_random_geometric_graph(
     nx.Graph
         Generated graph.
     """
+
+    # TODO Testing
 
     points = rng.uniform(0, 1, size=(n_nodes, n_dim))
 
@@ -156,6 +162,8 @@ def gen_graph(
     exceptions.MaxIterReachedException
         When connectedness cannot be ensured.
     """
+
+    # TODO Testing
     
     rng = input_checks.check_rng(rng)
 

@@ -6,12 +6,14 @@ from sklearn.metrics import (f1_score, average_precision_score, accuracy_score,
                              recall_score)
 
 def _to_mv(data):
+    # TODO Testing
     if not isinstance(data, list):
         data = [data]
 
     return data
 
 def _one(func, data):
+    # TODO Testing
     data = _to_mv(data)
 
     n_views = len(data)
@@ -23,6 +25,7 @@ def _one(func, data):
     return result if n_views>1 else result[0]
 
 def _one_to_one(func, data1, data2):
+    # TODO Testing
     data1 = _to_mv(data1)
     data2 = _to_mv(data2)
 
@@ -35,6 +38,7 @@ def _one_to_one(func, data1, data2):
     return result if n_views>1 else result[0]
 
 def _one_to_all(func, data1, data2):
+    # TODO Testing
     data1 = _to_mv(data1)
     data2 = _to_mv(data2)
 
@@ -64,6 +68,9 @@ def density(w: list[npt.NDArray] | npt.NDArray) -> float | npt.NDArray:
     float or npt.NDArray
         Graph densities. If a single graph is given, a single value is returned.
     """
+
+    # TODO Testing
+
     def _density(d):
         return np.count_nonzero(d)/len(d)
 
@@ -95,6 +102,9 @@ def correlation(
         dimensional. If :math:`M=1`, it is (N,) dimensional. If :math:`N=1` and 
         :math:`M=1`, it is a single value.  
     """
+
+    # TODO Testing
+
     def _correlation(d1, d2):
         return np.corrcoef(np.squeeze(d1), np.squeeze(d2))[0,1]
 
@@ -124,6 +134,9 @@ def f1(
     float or npt.NDArray
         Calculated F1 scores. If :math:`N=1`, it is a single F1-score.
     """
+
+    # TODO Testing
+
     def _f1(w1, w2):
         return f1_score((w1 > 0).astype(int).squeeze(), 
                         (w2 > 0).astype(int).squeeze())
@@ -154,6 +167,9 @@ def auprc(
     float or npt.NDArray
         Calculated AUPRC scores. If :math:`N=1`, it is a single AUPRC score.
     """
+
+    # TODO Testing
+
     def _auprc(w1, w2):
         return average_precision_score(
             (w1 > 0).astype(int).squeeze(), w2.squeeze()
@@ -185,6 +201,9 @@ def accuracy(
     float or npt.NDArray
         Calculated accuracy scores. If :math:`N=1`, it is a single score.
     """
+
+    # TODO Testing
+
     def _accuracy(w1, w2):
         return accuracy_score(
             (w1 > 0).astype(int).squeeze(), (w2 > 0).astype(int).squeeze()
@@ -216,6 +235,9 @@ def nmi(
     float or npt.NDArray
         Calculated NMI values. If :math:`N=1`, it is a single value.
     """
+
+    # TODO Testing
+
     def _nmi(w1, w2):
         return normalized_mutual_info_score(
             (w1 > 0).astype(int).squeeze(), (w2 > 0).astype(int).squeeze()
@@ -247,6 +269,9 @@ def precision(
     float or npt.NDArray
         Calculated precision scores. If :math:`N=1`, it is a single score.
     """
+
+    # TODO Testing
+
     def _precision(w1, w2):
         return precision_score(
             (w1 > 0).astype(int).squeeze(), (w2 > 0).astype(int).squeeze()
@@ -278,6 +303,9 @@ def recall(
     float or npt.NDArray
         Calculated recall scores. If :math:`N=1`, it is a single score.
     """
+
+    # TODO Testing
+
     def _recall(w1, w2):
         return recall_score(
             (w1 > 0).astype(int).squeeze(), (w2 > 0).astype(int).squeeze()
@@ -323,6 +351,8 @@ def recovery_error(
     float or npt.NDArray
         Calculated recovery errors. If :math:`N=1`, it is a single score.
     """
+
+    # TODO Testing
 
     def _recovery_error(w1, w2):
         ord = 2 if norm == "l2" else 1
