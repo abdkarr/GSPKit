@@ -21,6 +21,8 @@ pydata-sphinx-theme = ">=0.16.0"
 ghp-import = ">=2.1.0"
 ipython = ">=8.30.0"
 ipykernel = ">=6.29.5"
+matplotlib = ">=3.9.3"
+seaborn = ">=0.13.2"
 
 [build-system]
 requires = ["poetry-core"]
