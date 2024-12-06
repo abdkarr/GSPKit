@@ -1,9 +1,3 @@
-.DS_Store
-/data/outputs/
-/figures/
-/hpccjobs/
-/notebooks/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
