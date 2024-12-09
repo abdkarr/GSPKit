@@ -1,0 +1,30 @@
+# text.usetex : True
+# text.latex.preamble : \usepackage{amsmath} \usepackage{amssymb}
+
+xtick.labelsize: 7
+xtick.major.size: 4
+xtick.major.width: 0.5
+xtick.color: "#909090"
+xtick.labelcolor: black
+xtick.major.pad: 2
+xtick.bottom: true
+
+ytick.labelsize: 7
+ytick.major.size: 4
+ytick.major.width: 0.5
+ytick.color: "#909090"
+ytick.labelcolor: black
+ytick.major.pad: 2
+ytick.left: true
+
+axes.titlesize: 8
+axes.labelsize: 7
+axes.edgecolor: "#909090"
+axes.linewidth: 0.6
+
+font.family: "serif"
+
+legend.fontsize: 7
+
+grid.color: "#e0e0e0"
+grid.linewidth: 0.5
