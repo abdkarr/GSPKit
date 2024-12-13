@@ -152,3 +152,53 @@ def gen_signals_from_signed_graph(
     X += E*(noise*X_norm/E_norm)
 
     return X
+
+def _regular(val, d):
+    if d == 0:
+        y = np.sin((np.pi/4)*val)
+    else:
+        output = np.sin((np.pi/2)*(val - 1))
+
+        for _ in range(2, d+1):
+            output = np.sin((np.pi/2)*output)
+        
+        y = np.sin((np.pi/4)*(1 + output))
+
+    return y
+
+def gen_signals_from_signed_graph2(
+        G: nx.Graph, n_signals: int, fltr: str="regular", fltr_params: dict = {},
+        noise: float=0.1, rng: typing.RNG_TYPE = None
+    ) -> npt.NDArray:
+    
+    rng = input_checks.check_rng(rng)
+    n_nodes = G.number_of_nodes()
+
+    Lp = laplacians.get_pos_laplacian(G).toarray()
+    Ln = laplacians.get_neg_laplacian(G).toarray()
+    L = Lp - Ln
+
+    e, V = np.linalg.eigh(L)
+
+    if fltr == "regular":
+        if "d" not in fltr_params:
+            fltr_params["d"] = 1
+
+        e_min = np.min(e)
+        e_max = np.max(e)
+
+        h1 = lambda x: _regular((x - e_min)*(2/(e_max - e_min)), fltr_params["d"])
+        h = lambda x: np.real(np.sqrt(1 - h1(x)**2)) 
+
+    # Generate white noise
+    X0 = rng.multivariate_normal(np.zeros(n_nodes), np.eye(n_nodes), n_signals).T
+
+    X = V@np.diag(h)@V.T@X0
+
+    # Add noise
+    X_norm = np.linalg.norm(X)
+    E = rng.normal(0, 1, X.shape)
+    E_norm = np.linalg.norm(E)
+    X += E*(noise*X_norm/E_norm)
+
+    return X
