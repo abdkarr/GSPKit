@@ -179,6 +179,7 @@ def gen_signals_from_signed_graph2(
     L = Lp - Ln
 
     e, V = np.linalg.eigh(L)
+    e[np.abs(e) < 1e-8] = 0
 
     if fltr == "regular":
         if "d" not in fltr_params:
@@ -190,6 +191,7 @@ def gen_signals_from_signed_graph2(
         h1 = lambda x: _regular((x - e_min)*(2/(e_max - e_min)), fltr_params["d"])
         h2 = lambda x: np.real(np.sqrt(1 - h1(x)**2))
         h = h2(e) 
+        h[e == 0] = 0 
 
     # Generate white noise
     X0 = rng.multivariate_normal(np.zeros(n_nodes), np.eye(n_nodes), n_signals).T
