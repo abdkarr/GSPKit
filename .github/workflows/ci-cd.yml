@@ -1,19 +1,19 @@
-name: documentation
+name: ci-cd
 
-on: [push, pull_request, workflow_dispatch]
+on: [push, pull_request]
 
 permissions:
   contents: write
 
 jobs:
-  docs:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup Python
         uses: actions/setup-python@v5
         with: 
-          python-version: 3.10
+          python-version: "3.10"
 
       - name: Check-out repository
         uses: actions/checkout@v4
