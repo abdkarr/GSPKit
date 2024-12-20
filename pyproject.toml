@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "gspkit"
+version = "0.1.0"
+description = ""
+authors = ["abdkarr <7543956+abdkarr@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+numpy = ">=2.0.0"
+networkx = ">=3.4.2"
+scipy = ">=1.14.1"
+scikit-learn = ">=1.5.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3.3"
+pytest-cov = ">=6.0.0"
+myst-nb = ">=1.1.2"
+sphinx-autoapi = ">=3.3.3"
+pydata-sphinx-theme = ">=0.16.0"
+ghp-import = ">=2.1.0"
+ipython = ">=8.30.0"
+ipykernel = ">=6.29.5"
+matplotlib = ">=3.9.3"
+seaborn = ">=0.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
