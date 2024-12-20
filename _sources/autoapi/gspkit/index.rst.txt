@@ -1,0 +1,33 @@
+gspkit
+======
+
+.. py:module:: gspkit
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/gspkit/linalg/index
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   gspkit.PROJECT_DIR
+   gspkit.STYLE_FILE
+
+
+Package Contents
+----------------
+
+.. py:data:: PROJECT_DIR
+   :value: ''
+
+
+.. py:data:: STYLE_FILE
+

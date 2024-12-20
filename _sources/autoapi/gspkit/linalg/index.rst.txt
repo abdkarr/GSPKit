@@ -1,0 +1,56 @@
+gspkit.linalg
+=============
+
+.. py:module:: gspkit.linalg
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   gspkit.linalg.rowsum_mat
+   gspkit.linalg.vectorize_a_graph
+
+
+Package Contents
+----------------
+
+.. py:function:: rowsum_mat(n)
+
+   Construct row-sum matrix for a symmetric zero-diagonal matrix.
+
+   For a symmetric matrix :math:`\mathbf{A} \in \mathbb{R}^{n \\times n}`, let
+   :math:`\mathbf{a} \in \mathbb{R}^{n(n-1)/2}` be its strictly upper
+   triangular part in vector form. Row sum matrix :math:`\mathbf{S} \in
+   \mathbb{R}^{n \\times n(n-1)/2}` can be used as :math:`\mathbf{S}\mathbf{a}`
+   to calculate :math:`\mathbf{A}\mathbf{1} - \mathrm{diag}(\mathbf{A})`, where
+   :math:`\mathbf{1}` is :math:`n` dimensional all-ones vector and
+   :math:`\mathrm{diag}` is the operator returning diagonal of the input matrix
+   as a vector.
+
+   :param n: Dimension of the matrix.
+   :type n: int
+
+   :returns: Matrix to be used in row-sum calculation.
+   :rtype: scipy.sparse.csr_array
+
+
+.. py:function:: vectorize_a_graph(G: networkx.Graph, signed: bool = False) -> numpy.typing.NDArray | tuple[numpy.typing.NDArray, numpy.typing.NDArray]
+
+   Get strictly upper triangular part of the graph adjacency as a vector.
+
+   The function can handle unsigned and signed graphs. In the latter case it
+   returns two vectors representing strictly upper triangular part of positive
+   and negative adjacency matrix.
+
+   :param G: Input graph.
+   :type G: nx.Graph
+   :param signed: Flag indicating whether input graph is signed or not. If True, `G` should
+                  have edge attribute named `signed` indicating edges' sign.
+   :type signed: bool, optional
+
+   :returns: Output vector or vectors in case of signed graph
+   :rtype: np.NDArray or tuple of np.NDArrays
+
+
