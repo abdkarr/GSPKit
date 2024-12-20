@@ -24,6 +24,14 @@ extensions = [
 autoapi_dirs = ["../gspkit"]
 autoapi_add_toctree_entry = False
 
+def skip_submodules(app, what, name, obj, skip, options):
+    if what == "module":
+        skip = True
+    return skip
+
+def setup(sphinx):
+    sphinx.connect("autoapi-skip-member", skip_submodules)
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.

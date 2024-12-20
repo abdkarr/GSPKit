@@ -5,5 +5,5 @@
 :maxdepth: 1
 :hidden:
 
-API <autoapi/GSPKit/index>
+API <autoapi/gspkit/index>
 ```
