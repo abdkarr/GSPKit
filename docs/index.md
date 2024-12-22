@@ -1,9 +1,10 @@
-```{include} ../README.md
+# GSPKit
+
+## Installation 
+
+Use `pip` to install the package from Github: 
+```bash
+$ pip install git+https://github.com/abdkarr/GSPKit.git
 ```
 
-```{toctree}
-:maxdepth: 1
-:hidden:
-
-API <autoapi/gspkit/index>
-```
+Minimum supported python version is `3.10`.
