@@ -2,7 +2,7 @@ import numpy as np
 
 from gspkit import typing
 
-def check_rng(rng: typing.RNG_TYPE) -> np.random.Generator:
+def check_rng(rng: typing.RNGType) -> np.random.Generator:
     r"""Check a rng arguments for functions.
 
     The function can be used to check if `rng` argument is a valid `numpy`
